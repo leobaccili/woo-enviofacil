@@ -56,6 +56,8 @@ class WOO_EnvioFacil_UOL_WebService extends WOO_EnvioFacil_WebService {
 		curl_setopt( $req, CURLOPT_HTTPHEADER, [ 'Content-Type: application/json' ] );
 		curl_setopt( $req, CURLOPT_POSTFIELDS, json_encode( $params ) );
 		curl_setopt( $req, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt( $req, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt( $req, CURLOPT_SSL_VERIFYHOST, FALSE);
 
 		$res = curl_exec( $req );
 		curl_close( $req );
